@@ -38,6 +38,33 @@ export const metadata: Metadata = {
   },
 };
 
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Dark Star Storage",
+  description:
+    "Fully automated self-storage with 24/7 smart access, online rentals, and zero hassle. Located in Frazee, Minnesota.",
+  url: "https://darkstarstorage.com",
+  telephone: "",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "",
+    addressLocality: "Frazee",
+    addressRegion: "MN",
+    postalCode: "56544",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 46.7302,
+    longitude: -95.7,
+  },
+  openingHours: "Mo-Su 00:00-23:59",
+  priceRange: "$$",
+  image: "https://darkstarstorage.com/opengraph-image",
+  sameAs: [],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -49,6 +76,10 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
       <body className="bg-void-black text-starlight font-body antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
         <main id="main">{children}</main>
       </body>
     </html>
