@@ -153,7 +153,8 @@ export default function SizeGuide() {
           Not sure what you need?{" "}
           <a
             href="#units"
-            className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors"
+            aria-label="Browse available storage units with sizes and prices"
+            className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 rounded"
           >
             Browse available units
           </a>{" "}

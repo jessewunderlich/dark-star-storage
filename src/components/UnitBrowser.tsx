@@ -115,7 +115,8 @@ export default function UnitBrowser({ units }: UnitBrowserProps) {
                 {unit.available && (
                   <Link
                     href={`/rent/${unit.id}`}
-                    className="mt-6 w-full block rounded-lg border border-gold/30 py-2.5 font-display text-sm font-semibold text-gold hover:bg-gold hover:text-void-black transition-all duration-200 text-center"
+                    aria-label={`Rent ${unit.size} unit (${unit.sqft} sq ft) for $${unit.price}/month`}
+                    className="mt-6 w-full block rounded-lg border border-gold/30 py-2.5 font-display text-sm font-semibold text-gold hover:bg-gold hover:text-void-black transition-all duration-200 text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
                   >
                     Rent This Unit
                   </Link>

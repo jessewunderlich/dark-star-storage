@@ -30,13 +30,15 @@ export default function Hero() {
       <div className="relative z-10 mt-10 flex flex-col gap-4 sm:flex-row">
         <a
           href="#units"
-          className="rounded-lg bg-gold px-8 py-4 font-display text-base font-semibold text-void-black hover:bg-gold-light transition-all duration-200 hover:shadow-[0_0_30px_rgba(240,165,0,0.3)]"
+          aria-label="Browse available storage units"
+          className="rounded-lg bg-gold px-8 py-4 font-display text-base font-semibold text-void-black hover:bg-gold-light transition-all duration-200 hover:shadow-[0_0_30px_rgba(240,165,0,0.3)] focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
         >
           Find Your Unit
         </a>
         <a
           href="#how-it-works"
-          className="rounded-lg border border-horizon px-8 py-4 font-display text-base font-semibold text-starlight hover:border-gold hover:text-gold transition-all duration-200"
+          aria-label="Learn how the rental process works"
+          className="rounded-lg border border-horizon px-8 py-4 font-display text-base font-semibold text-starlight hover:border-gold hover:text-gold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
         >
           How It Works
         </a>
