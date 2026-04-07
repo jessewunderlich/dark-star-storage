@@ -47,19 +47,19 @@ export default function Hero() {
       {/* Stats bar */}
       <div className="relative z-10 mt-20 grid grid-cols-3 gap-8 border-t border-horizon pt-8 text-center md:gap-16">
         <div>
-          <p className="font-display text-3xl font-bold text-gold">24/7</p>
+          <p className="font-mono text-3xl font-bold text-gold">24/7</p>
           <p className="mt-1 font-body text-sm text-starlight-muted">
             Smart Access
           </p>
         </div>
         <div>
-          <p className="font-display text-3xl font-bold text-gold">100%</p>
+          <p className="font-mono text-3xl font-bold text-gold">100%</p>
           <p className="mt-1 font-body text-sm text-starlight-muted">
             Automated
           </p>
         </div>
         <div>
-          <p className="font-display text-3xl font-bold text-gold">0</p>
+          <p className="font-mono text-3xl font-bold text-gold">0</p>
           <p className="mt-1 font-body text-sm text-starlight-muted">
             Hassle
           </p>

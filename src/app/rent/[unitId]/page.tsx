@@ -18,7 +18,7 @@ export default async function RentPage({ params }: RentPageProps) {
         <h1 className="mt-6 font-display text-3xl font-bold text-starlight">
           Unit Not Available
         </h1>
-        <p className="mt-4 text-starlight-muted">
+        <p className="mt-4 font-body text-starlight-muted">
           This unit is no longer available or does not exist.
         </p>
         <Link
@@ -43,7 +43,7 @@ export default async function RentPage({ params }: RentPageProps) {
             <p className="font-display text-4xl font-bold text-starlight">
               {unit.size}
             </p>
-            <p className="text-sm text-starlight-muted mt-1">
+            <p className="font-body text-sm text-starlight-muted mt-1">
               {unit.sqft} sq ft
               {unit.climate && (
                 <span className="ml-2 text-nebula-light">Climate Controlled</span>
@@ -54,13 +54,13 @@ export default async function RentPage({ params }: RentPageProps) {
             <p className="font-display text-3xl font-bold text-gold">
               ${unit.price}
             </p>
-            <p className="text-xs text-starlight-muted">/month</p>
+            <p className="font-body text-xs text-starlight-muted">/month</p>
           </div>
         </div>
-        <p className="text-sm text-starlight-muted mb-8">{unit.fits}</p>
+        <p className="font-body text-sm text-starlight-muted mb-8">{unit.fits}</p>
 
         <div className="space-y-4">
-          <p className="text-center text-xs text-starlight-muted">
+          <p className="text-center font-body text-xs text-starlight-muted">
             Stripe checkout will activate when keys are configured.
             <br />
             Test card: 4242 4242 4242 4242
