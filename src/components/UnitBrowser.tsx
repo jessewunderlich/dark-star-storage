@@ -1,82 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import type { Unit } from "@/lib/storeganise";
 
-interface Unit {
-  id: string;
-  size: string;
-  sqft: number;
-  price: number;
-  climate: boolean;
-  floor: number;
-  fits: string;
-  available: boolean;
+interface UnitBrowserProps {
+  units: Unit[];
 }
 
-const sampleUnits: Unit[] = [
-  {
-    id: "A-101",
-    size: "5\u00d75",
-    sqft: 25,
-    price: 49,
-    climate: false,
-    floor: 1,
-    fits: "Closet-sized. Boxes, seasonal items, small furniture.",
-    available: true,
-  },
-  {
-    id: "B-205",
-    size: "5\u00d710",
-    sqft: 50,
-    price: 79,
-    climate: false,
-    floor: 1,
-    fits: "Walk-in closet. Studio apartment or small office contents.",
-    available: true,
-  },
-  {
-    id: "C-112",
-    size: "10\u00d710",
-    sqft: 100,
-    price: 119,
-    climate: true,
-    floor: 1,
-    fits: "Half a garage. 1-bedroom apartment contents.",
-    available: true,
-  },
-  {
-    id: "D-308",
-    size: "10\u00d715",
-    sqft: 150,
-    price: 159,
-    climate: true,
-    floor: 1,
-    fits: "Full garage. 2-bedroom apartment or small house.",
-    available: true,
-  },
-  {
-    id: "E-401",
-    size: "10\u00d720",
-    sqft: 200,
-    price: 199,
-    climate: true,
-    floor: 1,
-    fits: "Large garage. 3-bedroom house or vehicle storage.",
-    available: false,
-  },
-  {
-    id: "F-501",
-    size: "10\u00d730",
-    sqft: 300,
-    price: 279,
-    climate: true,
-    floor: 1,
-    fits: "Commercial. Multi-room house, inventory, or equipment.",
-    available: true,
-  },
-];
-
-export default function UnitBrowser() {
+export default function UnitBrowser({ units }: UnitBrowserProps) {
   return (
     <section id="units" className="relative py-24 px-6 bg-horizon/20">
       <div className="mx-auto max-w-6xl">
@@ -88,7 +19,7 @@ export default function UnitBrowser() {
         </p>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {sampleUnits.map((unit) => (
+          {units.map((unit) => (
             <div
               key={unit.id}
               className={`group relative rounded-xl border p-6 transition-all duration-300 ${
@@ -125,9 +56,7 @@ export default function UnitBrowser() {
                   <p className="text-xs text-starlight-muted mt-1">
                     {unit.sqft} sq ft
                     {unit.climate && (
-                      <span className="ml-2 text-nebula-light">
-                        ❄️ Climate
-                      </span>
+                      <span className="ml-2 text-nebula-light">Climate</span>
                     )}
                   </p>
                 </div>

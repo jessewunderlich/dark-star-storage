@@ -3,13 +3,16 @@ import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import UnitBrowser from "@/components/UnitBrowser";
 import Footer from "@/components/Footer";
+import { getUnits } from "@/lib/storeganise";
 
-export default function Home() {
+export default async function Home() {
+  const units = await getUnits();
+
   return (
     <main className="min-h-screen bg-void-black">
       <Navbar />
       <Hero />
-      <UnitBrowser />
+      <UnitBrowser units={units} />
       <HowItWorks />
       <Footer />
     </main>
