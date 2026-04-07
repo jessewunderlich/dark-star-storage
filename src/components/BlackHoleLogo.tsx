@@ -1,81 +1,50 @@
 "use client";
 
-import { FC, SVGProps } from 'react';
-
 interface BlackHoleLogoProps {
   size?: number;
   className?: string;
 }
 
-const BlackHoleLogo: FC<BlackHoleLogoProps> = ({ size = 48, className = '' }) => {
-  const width = size;
-  const height = size;
-  const viewBox = `0 0 ${width} ${height}`;
+export default function BlackHoleLogo({ size = 48, className = "" }: BlackHoleLogoProps) {
+  const cx = size / 2;
+  const cy = size / 2;
 
   return (
     <svg
-      width={width}
-      height={height}
-      viewBox={viewBox}
-      fill=\"none\"
-      xmlns=\"http://www.w3.org/2000/svg\"
+      width={size}
+      height={size}
+      viewBox={`0 0 ${size} ${size}`}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
       className={className}
-      role=\"img\"
-      aria-label=\"Dark Star Storage logo\"
+      role="img"
+      aria-label="Dark Star Storage logo"
     >
-      {/* Event horizon - inner gold circle */}
       <circle
-        cx={width / 2}
-        cy={height / 2}
+        cx={cx}
+        cy={cy}
         r={size * 0.15}
-        stroke=\"#F0A500\"
+        stroke="#F0A500"
         strokeWidth={size * 0.025}
-        fill=\"none\"
-        strokeLinecap=\"round\"
-        strokeLinejoin=\"round\"
+        fill="none"
       />
-      
-      {/* Photon ring - middle gold circle */}
       <circle
-        cx={width / 2}
-        cy={height / 2}
+        cx={cx}
+        cy={cy}
         r={size * 0.25}
-        stroke=\"#F0A500\"
+        stroke="#F0A500"
         strokeWidth={size * 0.015}
-        fill=\"none\"
-        strokeLinecap=\"round\"
-        strokeLinejoin=\"round\"
+        fill="none"
         opacity={0.8}
       />
-      
-      {/* Accretion disk - outer purple ring */}
       <circle
-        cx={width / 2}
-        cy={height / 2}
+        cx={cx}
+        cy={cy}
         r={size * 0.4}
-        stroke=\"#6C3CE1\"
+        stroke="#6C3CE1"
         strokeWidth={size * 0.035}
-        strokeLinecap=\"round\"
-        fill=\"none\"
-        strokeLinejoin=\"round\"
-      />
-      
-      {/* Subtle distortion lines for gravitational lensing */}
-      <defs>
-        <linearGradient id=\"lens\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">
-          <stop offset=\"0%\" stopColor=\"#F0A500\" stopOpacity={0.3}/>
-          <stop offset=\"100%\" stopColor=\"#6C3CE1\" stopOpacity={0.1}/>
-        </linearGradient>
-      </defs>
-      <path
-        d={`M ${width/2-size*0.45} ${height/2} Q ${width/2-size*0.2} ${height/2-size*0.3} ${width/2} ${height/2-size*0.45} Q ${width/2+size*0.2} ${height/2-size*0.3} ${width/2+size*0.45} ${height/2}`}
-        stroke=\"url(#lens)\"
-        strokeWidth={size * 0.01}
-        fill=\"none\"
-        opacity={0.6}
+        fill="none"
       />
     </svg>
   );
-};
-
-export default BlackHoleLogo;
+}

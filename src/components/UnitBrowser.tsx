@@ -1,16 +1,22 @@
 "use client";
 
-import type { Unit } from "@/types/unit";
+import Link from "next/link";
 
-/**
- * Placeholder unit browser — will connect to Storeganise API.
- * For now, shows sample units to demonstrate the UI pattern.
- */
+interface Unit {
+  id: string;
+  size: string;
+  sqft: number;
+  price: number;
+  climate: boolean;
+  floor: number;
+  fits: string;
+  available: boolean;
+}
 
 const sampleUnits: Unit[] = [
   {
     id: "A-101",
-    size: "5×5",
+    size: "5\u00d75",
     sqft: 25,
     price: 49,
     climate: false,
@@ -20,7 +26,7 @@ const sampleUnits: Unit[] = [
   },
   {
     id: "B-205",
-    size: "5×10",
+    size: "5\u00d710",
     sqft: 50,
     price: 79,
     climate: false,
@@ -30,7 +36,7 @@ const sampleUnits: Unit[] = [
   },
   {
     id: "C-112",
-    size: "10×10",
+    size: "10\u00d710",
     sqft: 100,
     price: 119,
     climate: true,
@@ -40,7 +46,7 @@ const sampleUnits: Unit[] = [
   },
   {
     id: "D-308",
-    size: "10×15",
+    size: "10\u00d715",
     sqft: 150,
     price: 159,
     climate: true,
@@ -50,7 +56,7 @@ const sampleUnits: Unit[] = [
   },
   {
     id: "E-401",
-    size: "10×20",
+    size: "10\u00d720",
     sqft: 200,
     price: 199,
     climate: true,
@@ -60,7 +66,7 @@ const sampleUnits: Unit[] = [
   },
   {
     id: "F-501",
-    size: "10×30",
+    size: "10\u00d730",
     sqft: 300,
     price: 279,
     climate: true,
@@ -91,7 +97,6 @@ export default function UnitBrowser() {
                   : "border-horizon/50 bg-void-black/50 opacity-50 cursor-not-allowed"
               }`}
             >
-              {/* Unit ID */}
               <div className="flex items-center justify-between mb-4">
                 <span className="font-mono text-xs text-starlight-muted">
                   {unit.id}
@@ -112,7 +117,6 @@ export default function UnitBrowser() {
                 </span>
               </div>
 
-              {/* Size + Price */}
               <div className="flex items-end justify-between">
                 <div>
                   <p className="font-display text-3xl font-bold text-starlight group-hover:text-gold transition-colors">
@@ -135,16 +139,17 @@ export default function UnitBrowser() {
                 </div>
               </div>
 
-              {/* What fits */}
               <p className="mt-4 font-body text-sm text-starlight-muted leading-relaxed">
                 {unit.fits}
               </p>
 
-              {/* CTA */}
               {unit.available && (
-                <button className="mt-6 w-full rounded-lg border border-gold/30 py-2.5 font-display text-sm font-semibold text-gold hover:bg-gold hover:text-void-black transition-all duration-200">
+                <Link
+                  href={`/rent/${unit.id}`}
+                  className="mt-6 w-full block rounded-lg border border-gold/30 py-2.5 font-display text-sm font-semibold text-gold hover:bg-gold hover:text-void-black transition-all duration-200 text-center"
+                >
                   Rent This Unit
-                </button>
+                </Link>
               )}
             </div>
           ))}
