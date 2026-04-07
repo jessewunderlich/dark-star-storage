@@ -1,11 +1,13 @@
 "use client";
 
+import type { Unit } from "@/types/unit";
+
 /**
  * Placeholder unit browser — will connect to Storeganise API.
  * For now, shows sample units to demonstrate the UI pattern.
  */
 
-const sampleUnits = [
+const sampleUnits: Unit[] = [
   {
     id: "A-101",
     size: "5×5",

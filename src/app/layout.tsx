@@ -49,7 +49,7 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
       <body className="bg-void-black text-starlight font-body antialiased">
-        {children}
+        <main id="main">{children}</main>
       </body>
     </html>
   );
