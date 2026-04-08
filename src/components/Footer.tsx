@@ -4,7 +4,6 @@ import { useState } from "react";
 import BlackHoleLogo from "./BlackHoleLogo";
 
 const PHONE = "(218) 438-7483"; // (218) GET-SITE — real Quo number
-// TODO: domain not yet purchased; placeholder email until darkstarstorage.com is live
 const EMAIL = "hello@darkstarstorage.com";
 
 export default function Footer() {
