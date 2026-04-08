@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -46,10 +47,10 @@ const localBusinessJsonLd = {
   description:
     "Fully automated self-storage with 24/7 smart access, online rentals, and zero hassle. Located in Frazee, Minnesota.",
   url: "https://darkstarstorage.com",
-  telephone: "",
+  telephone: "+1-218-438-7483",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "",
+    streetAddress: "Frazee",
     addressLocality: "Frazee",
     addressRegion: "MN",
     postalCode: "56544",
@@ -82,6 +83,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
         {children}
+        <Analytics />
       </body>
     </html>
   );
