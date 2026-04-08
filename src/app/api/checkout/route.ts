@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
+import { getUnits } from "@/lib/storeganise";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
@@ -20,22 +21,27 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { unitId, unitSize, price } = body;
+    const { unitId } = body;
 
-    // Validate input
-    if (!unitId || !unitSize || !price) {
+    if (!unitId) {
       return NextResponse.json(
-        { error: "Missing required fields: unitId, unitSize, price" },
+        { error: "Missing required field: unitId" },
         { status: 400 }
       );
     }
 
-    if (typeof price !== "number" || price <= 0 || price > 1000) {
+    // Look up unit server-side — never trust client-submitted price
+    const units = await getUnits();
+    const unit = units.find((u) => u.id === unitId && u.available);
+
+    if (!unit) {
       return NextResponse.json(
-        { error: "Invalid price" },
-        { status: 400 }
+        { error: "Unit not found or unavailable" },
+        { status: 404 }
       );
     }
+
+    const { size: unitSize, price } = unit;
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
@@ -55,8 +61,8 @@ export async function POST(req: NextRequest) {
         },
       ],
       metadata: {
-        unitId,
-        unitSize,
+        unitId: unit.id,
+        unitSize: unit.size,
       },
       success_url: `${SITE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${SITE_URL}/rent/${unitId}`,

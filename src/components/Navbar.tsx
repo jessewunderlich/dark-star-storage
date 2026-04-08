@@ -7,7 +7,7 @@ import BlackHoleLogo from "./BlackHoleLogo";
 const navLinks = [
   { href: "#units", label: "Units" },
   { href: "#how-it-works", label: "How It Works" },
-  { href: "#pricing", label: "Pricing" },
+  { href: "#size-guide", label: "Pricing" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -49,7 +49,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="#rent"
+              href="#units"
               aria-label="Rent a storage unit"
               className="rounded-lg bg-gold px-5 py-2.5 font-display text-sm font-semibold text-void-black hover:bg-gold-light transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
             >
@@ -96,7 +96,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="#rent"
+              href="#units"
               role="menuitem"
               aria-label="Rent a storage unit"
               className="rounded-lg bg-gold px-5 py-2.5 font-display text-sm font-semibold text-void-black hover:bg-gold-light transition-colors duration-200 text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"

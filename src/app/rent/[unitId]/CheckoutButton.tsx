@@ -22,7 +22,7 @@ export default function CheckoutButton({ unitId, unitSize, price }: CheckoutButt
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ unitId, unitSize, price }),
+        body: JSON.stringify({ unitId }),
       });
 
       const data = await res.json();

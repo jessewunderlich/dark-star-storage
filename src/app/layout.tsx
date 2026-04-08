@@ -50,7 +50,6 @@ const localBusinessJsonLd = {
   telephone: "+1-218-438-7483",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Frazee",
     addressLocality: "Frazee",
     addressRegion: "MN",
     postalCode: "56544",
