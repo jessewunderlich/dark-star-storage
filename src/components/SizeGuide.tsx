@@ -10,7 +10,7 @@ const sizes = [
     label: "5 × 5",
     sqft: 25,
     price: "from $49/mo",
-    image: "/images/unit-5x5.png",
+    image: "/images/unit-5x5.webp",
     tagline: "Closet-sized",
     summary: "Seasonal items, boxes, and small gear.",
     details: [
@@ -26,7 +26,7 @@ const sizes = [
     label: "5 × 10",
     sqft: 50,
     price: "from $79/mo",
-    image: "/images/unit-5x10.png",
+    image: "/images/unit-5x10.webp",
     tagline: "Studio apartment",
     summary: "Contents of a studio or dorm room.",
     details: [
@@ -42,7 +42,7 @@ const sizes = [
     label: "10 × 10",
     sqft: 100,
     price: "from $119/mo",
-    image: "/images/unit-10x10.png",
+    image: "/images/unit-10x10.webp",
     tagline: "1–2 bedroom apartment",
     summary: "Furniture, appliances, and full room contents.",
     details: [
@@ -58,7 +58,7 @@ const sizes = [
     label: "10 × 20",
     sqft: 200,
     price: "from $179/mo",
-    image: "/images/unit-10x20.png",
+    image: "/images/unit-10x20.webp",
     tagline: "3–4 bedroom home",
     summary: "Large home contents or vehicles.",
     details: [

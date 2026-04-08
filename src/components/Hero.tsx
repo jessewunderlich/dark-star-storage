@@ -8,7 +8,7 @@ export default function Hero() {
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-20">
       {/* Background facility image */}
       <Image
-        src="/images/hero-facility.png"
+        src="/images/hero-facility.webp"
         alt="Dark Star Storage facility exterior at twilight"
         fill
         priority

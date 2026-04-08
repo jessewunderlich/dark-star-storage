@@ -68,3 +68,15 @@ body {
 .animate-accretion {
   animation: accretion-spin 20s linear infinite;
 }
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-accretion {
+    animation: none;
+  }
+}
