@@ -29,7 +29,7 @@ export default function Reviews() {
         <h2 className="scroll-reveal text-center font-display text-4xl font-bold tracking-tight text-starlight md:text-5xl">
           Why <span className="text-gold">Dark Star</span>
         </h2>
-        <p className="scroll-reveal scroll-reveal-delay-1 mt-4 text-center font-body text-starlight-muted">
+        <p className="scroll-reveal scroll-reveal-delay-1 mt-4 text-center font-body text-lg text-starlight-muted">
           Storage built for how people actually live.
         </p>
 
@@ -43,7 +43,7 @@ export default function Reviews() {
               <h3 className="mt-4 font-display text-lg font-semibold text-starlight">
                 {item.title}
               </h3>
-              <p className="mt-3 font-body text-sm text-starlight-muted leading-relaxed">
+              <p className="mt-3 font-body text-base text-starlight-muted leading-relaxed">
                 {item.description}
               </p>
             </div>

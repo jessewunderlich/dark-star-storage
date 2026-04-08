@@ -69,6 +69,13 @@ body {
   animation: accretion-spin 20s linear infinite;
 }
 
+/* Button press states */
+button:active:not(:disabled),
+a.rounded-lg:active {
+  transform: scale(0.97);
+  transition: transform 0.1s ease;
+}
+
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .scroll-reveal {
@@ -78,5 +85,9 @@ body {
   }
   .animate-accretion {
     animation: none;
+  }
+  button:active:not(:disabled),
+  a.rounded-lg:active {
+    transform: none;
   }
 }

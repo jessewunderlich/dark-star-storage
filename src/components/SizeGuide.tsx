@@ -81,7 +81,7 @@ export default function SizeGuide() {
         <h2 className="scroll-reveal text-center font-display text-4xl font-bold tracking-tight text-starlight md:text-5xl">
           Find the Right <span className="text-gold">Size</span>
         </h2>
-        <p className="scroll-reveal scroll-reveal-delay-1 mt-4 text-center font-body text-starlight-muted">
+        <p className="scroll-reveal scroll-reveal-delay-1 mt-4 text-center font-body text-lg text-starlight-muted">
           Click a size to see what fits inside.
         </p>
 

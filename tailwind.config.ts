@@ -28,10 +28,10 @@ const config: Config = {
         },
         starlight: {
           DEFAULT: "#E8E8ED",
-          muted: "#9CA3AF",
+          muted: "#A8B0BC",
         },
         plasma: "#00D68F",
-        dwarf: "#FF4757",
+        dwarf: "#FF6B6B",
       },
       fontFamily: {
         display: ["'Space Grotesk'", "sans-serif"],

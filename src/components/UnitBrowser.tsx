@@ -33,7 +33,7 @@ export default function UnitBrowser({ units }: UnitBrowserProps) {
         <h2 className="scroll-reveal text-center font-display text-4xl font-bold tracking-tight text-starlight md:text-5xl">
           Find Your <span className="text-gold">Unit</span>
         </h2>
-        <p className="scroll-reveal scroll-reveal-delay-1 mt-4 text-center font-body text-starlight-muted">
+        <p className="scroll-reveal scroll-reveal-delay-1 mt-4 text-center font-body text-lg text-starlight-muted">
           Select a size. See what fits. Rent in minutes.
         </p>
 
@@ -110,7 +110,7 @@ export default function UnitBrowser({ units }: UnitBrowserProps) {
                   </div>
                 </div>
 
-                <p className="mt-4 font-body text-sm text-starlight-muted leading-relaxed">
+                <p className="mt-4 font-body text-base text-starlight-muted leading-relaxed">
                   {unit.fits}
                 </p>
 

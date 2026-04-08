@@ -79,12 +79,13 @@ export default function Navbar() {
         </div>
 
         {/* Mobile dropdown */}
-        {isOpen && (
-          <div
-            role="menu"
-            aria-label="Mobile navigation"
-            className="md:hidden border-t border-horizon bg-void-black/95 backdrop-blur-md px-6 py-4 flex flex-col gap-4"
-          >
+        <div
+          role="menu"
+          aria-label="Mobile navigation"
+          className={`md:hidden border-t border-horizon bg-void-black/95 backdrop-blur-md px-6 flex flex-col gap-4 overflow-hidden transition-all duration-300 ease-in-out ${
+            isOpen ? "max-h-80 py-4 opacity-100" : "max-h-0 py-0 opacity-0"
+          }`}
+        >
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -106,7 +107,6 @@ export default function Navbar() {
               Rent a Unit
             </Link>
           </div>
-        )}
       </nav>
     </>
   );

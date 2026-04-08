@@ -84,7 +84,7 @@ export default function HowItWorks() {
         <h2 className="scroll-reveal text-center font-display text-4xl font-bold tracking-tight text-starlight md:text-5xl">
           How It <span className="text-gold">Works</span>
         </h2>
-        <p className="scroll-reveal scroll-reveal-delay-1 mt-4 text-center font-body text-starlight-muted">
+        <p className="scroll-reveal scroll-reveal-delay-1 mt-4 text-center font-body text-lg text-starlight-muted">
           Four steps. Zero humans. Fully automated from search to storage.
         </p>
 
@@ -92,7 +92,7 @@ export default function HowItWorks() {
           {steps.map((step, i) => (
             <div
               key={step.number}
-              className={`scroll-reveal scroll-reveal-delay-${i + 1} group rounded-xl border border-horizon bg-horizon/30 p-8 transition-all duration-300 hover:border-gold/30 hover:bg-horizon/50`}
+              className={`scroll-reveal scroll-reveal-delay-${i + 1} group rounded-xl border border-horizon bg-horizon/30 p-8 transition-all duration-300 hover:border-gold/30 hover:shadow-[0_0_20px_rgba(240,165,0,0.06)]`}
             >
               <div className="flex items-center gap-4 mb-4">
                 <span className="font-mono text-sm text-gold/60">
@@ -103,7 +103,7 @@ export default function HowItWorks() {
               <h3 className="font-display text-xl font-semibold text-starlight group-hover:text-gold transition-colors">
                 {step.title}
               </h3>
-              <p className="mt-3 font-body text-sm leading-relaxed text-starlight-muted">
+              <p className="mt-3 font-body text-base leading-relaxed text-starlight-muted">
                 {step.description}
               </p>
             </div>

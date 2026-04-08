@@ -33,7 +33,7 @@ export default function Hero() {
       </h1>
 
       {/* Tagline */}
-      <p className="relative z-10 mt-6 max-w-lg text-center font-body text-lg text-starlight-muted">
+      <p className="relative z-10 mt-6 max-w-lg text-center font-body text-lg leading-relaxed text-starlight-muted">
         Your stuff. Safely consumed. Fully automated self-storage with 24/7
         smart access, online rentals, and zero hassle.
       </p>

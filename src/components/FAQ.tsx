@@ -68,7 +68,7 @@ export default function FAQ() {
         <h2 className="scroll-reveal text-center font-display text-4xl font-bold tracking-tight text-starlight md:text-5xl">
           Frequently Asked <span className="text-gold">Questions</span>
         </h2>
-        <p className="scroll-reveal scroll-reveal-delay-1 mt-4 text-center font-body text-starlight-muted">
+        <p className="scroll-reveal scroll-reveal-delay-1 mt-4 text-center font-body text-lg text-starlight-muted">
           Everything you need to know before you store.
         </p>
 
@@ -122,7 +122,7 @@ export default function FAQ() {
                     isOpen ? "max-h-96" : "max-h-0"
                   }`}
                 >
-                  <p className="px-6 pb-5 font-body text-sm leading-relaxed text-starlight-muted">
+                  <p className="px-6 pb-5 font-body text-base leading-relaxed text-starlight-muted">
                     {faq.answer}
                   </p>
                 </dd>

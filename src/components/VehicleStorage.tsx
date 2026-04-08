@@ -42,7 +42,7 @@ export default function VehicleStorage() {
         <h2 className="scroll-reveal text-center font-display text-4xl font-bold tracking-tight text-starlight md:text-5xl">
           Lake Country <span className="text-gold">Storage</span>
         </h2>
-        <p className="scroll-reveal scroll-reveal-delay-1 mt-4 text-center font-body text-starlight-muted max-w-2xl mx-auto">
+        <p className="scroll-reveal scroll-reveal-delay-1 mt-4 text-center font-body text-lg text-starlight-muted max-w-2xl mx-auto">
           Frazee sits at the heart of Minnesota lake country. Whether
           it&apos;s boats in winter or snowmobiles in summer, Dark Star keeps
           your toys ready for the next season.
@@ -52,7 +52,7 @@ export default function VehicleStorage() {
           {vehicles.map((item, i) => (
             <div
               key={item.title}
-              className={`scroll-reveal scroll-reveal-delay-${i + 1} rounded-xl border border-horizon bg-horizon/20 p-6 text-center transition-all duration-300 hover:border-gold/30`}
+              className={`scroll-reveal scroll-reveal-delay-${i + 1} rounded-xl border border-horizon bg-horizon/20 p-6 text-center transition-all duration-300 hover:border-gold/30 hover:shadow-[0_0_20px_rgba(240,165,0,0.06)]`}
             >
               <span className="text-4xl" aria-hidden="true">
                 {item.icon}
@@ -60,7 +60,7 @@ export default function VehicleStorage() {
               <h3 className="mt-4 font-display text-base font-semibold text-starlight">
                 {item.title}
               </h3>
-              <p className="mt-3 font-body text-sm text-starlight-muted leading-relaxed">
+              <p className="mt-3 font-body text-base text-starlight-muted leading-relaxed">
                 {item.description}
               </p>
             </div>
