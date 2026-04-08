@@ -109,7 +109,7 @@ export default function Image() {
           style={{
             marginTop: 20,
             fontSize: 28,
-            color: "#9CA3AF",
+            color: "#A8B0BC",
             letterSpacing: "0.05em",
           }}
         >
@@ -129,7 +129,7 @@ export default function Image() {
           }}
         >
           <span style={{ fontSize: 18, color: "#F0A500" }}>📍</span>
-          <span style={{ fontSize: 18, color: "#9CA3AF" }}>
+          <span style={{ fontSize: 18, color: "#A8B0BC" }}>
             Frazee, Minnesota · 24/7 Automated Access
           </span>
         </div>

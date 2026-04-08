@@ -1,12 +1,6 @@
 @import "tailwindcss";
 
-:root {
-  --void-black: #0A0A0F;
-  --event-horizon: #1A1A2E;
-  --accretion-gold: #F0A500;
-  --nebula-violet: #6C3CE1;
-  --starlight: #E8E8ED;
-}
+/* Color tokens defined in tailwind.config.ts — no CSS vars needed */
 
 * {
   box-sizing: border-box;
@@ -17,8 +11,8 @@ html {
 }
 
 body {
-  background-color: var(--void-black);
-  color: var(--starlight);
+  background-color: #0A0A0F;
+  color: #E8E8ED;
   font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -34,14 +28,14 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--void-black);
+  background: #0A0A0F;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--event-horizon);
+  background: #1A1A2E;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accretion-gold);
+  background: #F0A500;
 }
 
 /* Scroll reveal animations */
@@ -71,7 +65,8 @@ body {
 
 /* Button press states */
 button:active:not(:disabled),
-a.rounded-lg:active {
+a[class*="rounded-lg"]:active,
+a[class*="rounded-xl"]:active {
   transform: scale(0.97);
   transition: transform 0.1s ease;
 }
@@ -87,7 +82,8 @@ a.rounded-lg:active {
     animation: none;
   }
   button:active:not(:disabled),
-  a.rounded-lg:active {
+  a[class*="rounded-lg"]:active,
+  a[class*="rounded-xl"]:active {
     transform: none;
   }
 }
