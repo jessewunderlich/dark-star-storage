@@ -35,7 +35,13 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { name, email, message } = body;
+    const { name, email, message, website } = body;
+
+    // Honeypot — hidden field that real users never fill
+    if (website) {
+      // Bot detected — return fake success to not tip them off
+      return NextResponse.json({ success: true });
+    }
 
     // Validate
     if (!name || !email || !message) {

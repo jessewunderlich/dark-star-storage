@@ -10,6 +10,7 @@ export default function Footer() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [website, setWebsite] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -20,7 +21,7 @@ export default function Footer() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, message, website }),
       });
 
       if (!res.ok) {
@@ -83,6 +84,19 @@ export default function Footer() {
               Send a Message
             </h3>
             <form onSubmit={handleSubmit} noValidate className="space-y-3">
+              {/* Honeypot — hidden from real users, bots fill it */}
+              <div className="absolute -left-[9999px]" aria-hidden="true">
+                <label htmlFor="footer-website">Website</label>
+                <input
+                  id="footer-website"
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                />
+              </div>
               <div>
                 <label
                   htmlFor="footer-name"
