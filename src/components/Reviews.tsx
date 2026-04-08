@@ -37,7 +37,7 @@ export default function Reviews() {
           {highlights.map((item, i) => (
             <div
               key={item.title}
-              className={`scroll-reveal scroll-reveal-delay-${i + 1} rounded-xl border border-horizon bg-horizon/20 p-8 text-center`}
+              className={`scroll-reveal scroll-reveal-delay-${i + 1} rounded-xl border border-horizon bg-horizon/20 p-8 text-center transition-all duration-300 hover:border-gold/30 hover:shadow-[0_0_20px_rgba(240,165,0,0.08)]`}
             >
               <span className="text-4xl" aria-hidden="true">{item.icon}</span>
               <h3 className="mt-4 font-display text-lg font-semibold text-starlight">

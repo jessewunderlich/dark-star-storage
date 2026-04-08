@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import BlackHoleLogo from "./BlackHoleLogo";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const PHONE = "(218) 438-7483"; // (218) GET-SITE — real Quo number
 const EMAIL = "hello@darkstarstorage.com";
@@ -12,6 +13,7 @@ export default function Footer() {
   const [message, setMessage] = useState("");
   const [website, setWebsite] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const ref = useScrollReveal();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,12 +41,12 @@ export default function Footer() {
   };
 
   return (
-    <footer id="contact" className="border-t border-horizon bg-void-black py-16 px-6">
+    <footer id="contact" className="border-t border-horizon bg-void-black py-16 px-6" ref={ref}>
       <div className="mx-auto max-w-5xl">
         {/* Top row: logo + contact info + social */}
         <div className="flex flex-col gap-10 md:flex-row md:justify-between">
           {/* Logo + info */}
-          <div className="flex flex-col gap-6">
+          <div className="scroll-reveal flex flex-col gap-6">
             <div className="flex items-center gap-3">
               <BlackHoleLogo size={32} />
               <div>
@@ -93,7 +95,7 @@ export default function Footer() {
           </div>
 
           {/* Contact form */}
-          <div className="flex-1 md:max-w-sm">
+          <div className="scroll-reveal scroll-reveal-delay-1 flex-1 md:max-w-sm">
             <h3 className="font-display text-lg font-semibold text-starlight mb-4">
               Send a Message
             </h3>

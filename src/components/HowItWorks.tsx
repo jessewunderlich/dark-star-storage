@@ -80,7 +80,7 @@ export default function HowItWorks() {
 
   return (
     <section id="how-it-works" className="relative py-24 px-6 bg-horizon/10" ref={ref}>
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         <h2 className="scroll-reveal text-center font-display text-4xl font-bold tracking-tight text-starlight md:text-5xl">
           How It <span className="text-gold">Works</span>
         </h2>
@@ -92,7 +92,7 @@ export default function HowItWorks() {
           {steps.map((step, i) => (
             <div
               key={step.number}
-              className={`scroll-reveal scroll-reveal-delay-${i + 1} group rounded-xl border border-horizon bg-horizon/30 p-8 transition-all duration-300 hover:border-gold/30 hover:shadow-[0_0_20px_rgba(240,165,0,0.06)]`}
+              className={`scroll-reveal scroll-reveal-delay-${i + 1} group rounded-xl border border-horizon bg-horizon/30 p-8 transition-all duration-300 hover:border-gold/30 hover:shadow-[0_0_20px_rgba(240,165,0,0.08)]`}
             >
               <div className="flex items-center gap-4 mb-4">
                 <span className="font-mono text-sm text-gold/60">

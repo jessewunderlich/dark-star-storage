@@ -35,7 +35,7 @@ export default function VehicleStorage() {
   return (
     <section
       id="vehicle-storage"
-      className="relative py-24 px-6 bg-void-black"
+      className="relative py-24 px-6 bg-horizon/10"
       ref={ref}
     >
       <div className="mx-auto max-w-6xl">
@@ -52,7 +52,7 @@ export default function VehicleStorage() {
           {vehicles.map((item, i) => (
             <div
               key={item.title}
-              className={`scroll-reveal scroll-reveal-delay-${i + 1} rounded-xl border border-horizon bg-horizon/20 p-6 text-center transition-all duration-300 hover:border-gold/30 hover:shadow-[0_0_20px_rgba(240,165,0,0.06)]`}
+              className={`scroll-reveal scroll-reveal-delay-${i + 1} rounded-xl border border-horizon bg-horizon/20 p-8 text-center transition-all duration-300 hover:border-gold/30 hover:shadow-[0_0_20px_rgba(240,165,0,0.08)]`}
             >
               <span className="text-4xl" aria-hidden="true">
                 {item.icon}
@@ -67,7 +67,7 @@ export default function VehicleStorage() {
           ))}
         </div>
 
-        <p className="scroll-reveal mt-10 text-center font-body text-sm text-starlight-muted">
+        <p className="scroll-reveal mt-10 text-center font-body text-base text-starlight-muted">
           All vehicle storage includes 24/7 gate access and security cameras.{" "}
           <a
             href="#units"
