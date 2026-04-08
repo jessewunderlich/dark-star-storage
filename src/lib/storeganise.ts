@@ -103,50 +103,33 @@ function parseSqft(name: string): number {
  * Falls back to mock data if API key is not configured or request fails.
  */
 export async function getUnits(): Promise<Unit[]> {
-  // Use live API if configured
-  if (STOREGANISE_API_KEY && STOREGANISE_API_KEY !== "demo-key" && STOREGANISE_SITE_ID) {
-    try {
-      const res = await fetch(
-        `${STOREGANISE_BASE}/sites/${STOREGANISE_SITE_ID}/unit-types`,
-        {
-          headers: {
-            Authorization: `Bearer ${STOREGANISE_API_KEY}`,
-            "Content-Type": "application/json",
-          },
-          next: { revalidate: 300 }, // Cache for 5 minutes
-        }
-      );
+  if (!isApiConfigured()) return getMockUnits();
 
-      if (!res.ok) {
-        console.error(`Storeganise API error: ${res.status} ${res.statusText}`);
-        return getMockUnits();
-      }
+  const data = await apiFetch<Record<string, unknown>[] | { unitTypes: Record<string, unknown>[] }>(
+    `/sites/${STOREGANISE_SITE_ID}/unit-types`,
+    []
+  );
 
-      const data = await res.json();
+  const rawUnits = Array.isArray(data)
+    ? data
+    : (data as { unitTypes: Record<string, unknown>[] }).unitTypes || [];
 
-      // Map Storeganise unit types to our Unit interface
-      // Adjust field names based on actual API response shape
-      const units: Unit[] = (data.unitTypes || data || []).map(
-        (ut: Record<string, unknown>, idx: number) => ({
-          id: (ut.id as string) || `UNIT-${idx + 1}`,
-          size: (ut.name as string) || (ut.label as string) || "Unknown",
-          sqft: (ut.sqft as number) || parseSqft((ut.name as string) || ""),
-          price: (ut.defaultPrice as number) || (ut.price as number) || 0,
-          climate: Boolean(ut.climateControlled || ut.climate),
-          floor: (ut.floor as number) || 1,
-          fits: getSizeDescription((ut.name as string) || ""),
-          available: (ut.availableCount as number) > 0,
-        })
-      );
+  if (!rawUnits.length) return getMockUnits();
 
-      return units.length > 0 ? units : getMockUnits();
-    } catch (err) {
-      console.error("Storeganise API fetch failed:", err);
-      return getMockUnits();
-    }
-  }
+  const units: Unit[] = rawUnits.map(
+    (ut: Record<string, unknown>, idx: number) => ({
+      id: (ut.id as string) || `UNIT-${idx + 1}`,
+      size: (ut.name as string) || (ut.label as string) || "Unknown",
+      sqft: (ut.sqft as number) || parseSqft((ut.name as string) || ""),
+      price: (ut.defaultPrice as number) || (ut.price as number) || 0,
+      climate: Boolean(ut.climateControlled || ut.climate),
+      floor: (ut.floor as number) || 1,
+      fits: getSizeDescription((ut.name as string) || ""),
+      available: (ut.availableCount as number) > 0,
+    })
+  );
 
-  return getMockUnits();
+  return units.length > 0 ? units : getMockUnits();
 }
 
 /** Mock data for development and demo */
