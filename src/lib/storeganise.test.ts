@@ -23,4 +23,18 @@ describe("getUnits", () => {
     expect(available.length).toBeGreaterThan(0);
     expect(unavailable.length).toBeGreaterThan(0);
   });
+
+  it("returns units with all four size categories", async () => {
+    const units = await getUnits();
+    const sizes = new Set(units.map((u) => u.size));
+    expect(sizes.size).toBeGreaterThanOrEqual(4);
+  });
+
+  it("all units have valid sqft matching their size", async () => {
+    const units = await getUnits();
+    for (const unit of units) {
+      expect(unit.sqft).toBeGreaterThan(0);
+      expect(unit.fits.length).toBeGreaterThan(0);
+    }
+  });
 });

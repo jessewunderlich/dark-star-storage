@@ -17,7 +17,7 @@ export default function SuccessPage() {
         <div className="mx-auto max-w-lg w-full text-center">
           {/* Logo */}
           <div className="flex justify-center mb-6">
-            <BlackHoleLogo size={72} className="animate-pulse-slow" />
+            <BlackHoleLogo size={72} className="animate-accretion" />
           </div>
 
           {/* Heading */}

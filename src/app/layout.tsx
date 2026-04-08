@@ -21,6 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://darkstarstorage.com"),
   title: "Dark Star Storage — Your Stuff. Safely Consumed.",
   description:
     "Fully automated self-storage with 24/7 smart access, online rentals, and zero hassle. Dark Star Storage — once it's in, it's secure.",
@@ -80,7 +81,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
-        <main id="main">{children}</main>
+        {children}
       </body>
     </html>
   );

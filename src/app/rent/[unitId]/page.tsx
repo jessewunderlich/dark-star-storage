@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getUnits } from "@/lib/storeganise";
 import BlackHoleLogo from "@/components/BlackHoleLogo";
+import CheckoutButton from "./CheckoutButton";
 
 interface RentPageProps {
   params: Promise<{ unitId: string }>;
@@ -60,17 +61,7 @@ export default async function RentPage({ params }: RentPageProps) {
         <p className="font-body text-sm text-starlight-muted mb-8">{unit.fits}</p>
 
         <div className="space-y-4">
-          <p className="text-center font-body text-xs text-starlight-muted">
-            Stripe checkout will activate when keys are configured.
-            <br />
-            Test card: 4242 4242 4242 4242
-          </p>
-          <button
-            disabled
-            className="w-full rounded-lg bg-gold px-6 py-4 font-display text-base font-semibold text-void-black opacity-60 cursor-not-allowed"
-          >
-            Proceed to Payment (Coming Soon)
-          </button>
+          <CheckoutButton unitId={unit.id} unitSize={unit.size} price={unit.price} />
           <Link
             href="/#units"
             className="block w-full rounded-lg border border-horizon px-6 py-3 text-center font-display text-sm font-semibold text-starlight hover:border-gold hover:text-gold transition-colors"
