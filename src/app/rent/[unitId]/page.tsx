@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getUnits } from "@/lib/storeganise";
 import BlackHoleLogo from "@/components/BlackHoleLogo";
@@ -5,6 +6,21 @@ import CheckoutButton from "./CheckoutButton";
 
 interface RentPageProps {
   params: Promise<{ unitId: string }>;
+}
+
+export async function generateMetadata({ params }: RentPageProps): Promise<Metadata> {
+  const { unitId } = await params;
+  const units = await getUnits();
+  const unit = units.find((u) => u.id === unitId);
+
+  if (!unit) {
+    return { title: "Unit Not Found — Dark Star Storage" };
+  }
+
+  return {
+    title: `Rent ${unit.size} Storage Unit ($${unit.price}/mo) — Dark Star Storage`,
+    description: `Rent a ${unit.size} (${unit.sqft} sq ft) storage unit in Frazee, MN for $${unit.price}/month. ${unit.climate ? "Climate controlled. " : ""}${unit.fits} 24/7 access, fully automated.`,
+  };
 }
 
 export default async function RentPage({ params }: RentPageProps) {

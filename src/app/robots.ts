@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/rent/"],
+        disallow: ["/api/"],
       },
     ],
     sitemap: "https://darkstarstorage.com/sitemap.xml",
