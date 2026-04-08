@@ -1,9 +1,12 @@
 "use client";
 
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 const reviews = [
   {
     id: 1,
     name: "Dale Hoffmann",
+    initials: "DH",
     location: "Frazee, MN",
     rating: 5,
     date: "March 2025",
@@ -12,6 +15,7 @@ const reviews = [
   {
     id: 2,
     name: "Tammy Brisk",
+    initials: "TB",
     location: "Detroit Lakes, MN",
     rating: 5,
     date: "January 2025",
@@ -20,6 +24,7 @@ const reviews = [
   {
     id: 3,
     name: "Rick & Sandy Olson",
+    initials: "RO",
     location: "Perham, MN",
     rating: 5,
     date: "November 2024",
@@ -44,22 +49,32 @@ function StarRating({ count }: { count: number }) {
   );
 }
 
-export default function Reviews() {
+function Avatar({ initials }: { initials: string }) {
   return (
-    <section id="reviews" className="relative py-24 px-6 bg-void-black">
+    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-nebula to-gold">
+      <span className="font-display text-sm font-bold text-void-black">{initials}</span>
+    </div>
+  );
+}
+
+export default function Reviews() {
+  const ref = useScrollReveal();
+
+  return (
+    <section id="reviews" className="relative py-24 px-6 bg-void-black" ref={ref}>
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-center font-display text-4xl font-bold tracking-tight text-starlight md:text-5xl">
+        <h2 className="scroll-reveal text-center font-display text-4xl font-bold tracking-tight text-starlight md:text-5xl">
           What Our <span className="text-gold">Renters Say</span>
         </h2>
-        <p className="mt-4 text-center font-body text-starlight-muted">
+        <p className="scroll-reveal scroll-reveal-delay-1 mt-4 text-center font-body text-starlight-muted">
           Real people. Real storage. Zero hassle.
         </p>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {reviews.map((review) => (
+          {reviews.map((review, i) => (
             <div
               key={review.id}
-              className="rounded-xl border border-horizon bg-horizon/20 p-6 flex flex-col gap-4"
+              className={`scroll-reveal scroll-reveal-delay-${i + 1} rounded-xl border border-horizon bg-horizon/20 p-6 flex flex-col gap-4`}
             >
               <StarRating count={review.rating} />
 
@@ -67,13 +82,16 @@ export default function Reviews() {
                 &ldquo;{review.text}&rdquo;
               </p>
 
-              <div className="border-t border-horizon/60 pt-4">
-                <p className="font-display text-sm font-semibold text-starlight">
-                  {review.name}
-                </p>
-                <p className="font-mono text-xs text-starlight-muted mt-0.5">
-                  {review.location} &middot; {review.date}
-                </p>
+              <div className="flex items-center gap-3 border-t border-horizon/60 pt-4">
+                <Avatar initials={review.initials} />
+                <div>
+                  <p className="font-display text-sm font-semibold text-starlight">
+                    {review.name}
+                  </p>
+                  <p className="font-mono text-xs text-starlight-muted mt-0.5">
+                    {review.location} &middot; {review.date}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

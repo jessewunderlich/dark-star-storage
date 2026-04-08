@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { Unit } from "@/lib/storeganise";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 interface UnitBrowserProps {
   units: Unit[];
@@ -18,6 +19,7 @@ const FILTERS: { id: Filter; label: string }[] = [
 
 export default function UnitBrowser({ units }: UnitBrowserProps) {
   const [activeFilter, setActiveFilter] = useState<Filter>("all");
+  const ref = useScrollReveal();
 
   const filtered = units.filter((unit) => {
     if (activeFilter === "climate") return unit.climate;
@@ -26,12 +28,12 @@ export default function UnitBrowser({ units }: UnitBrowserProps) {
   });
 
   return (
-    <section id="units" className="relative py-24 px-6 bg-horizon/20">
+    <section id="units" className="relative py-24 px-6 bg-horizon/20" ref={ref}>
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-center font-display text-4xl font-bold tracking-tight text-starlight md:text-5xl">
+        <h2 className="scroll-reveal text-center font-display text-4xl font-bold tracking-tight text-starlight md:text-5xl">
           Find Your <span className="text-gold">Unit</span>
         </h2>
-        <p className="mt-4 text-center font-body text-starlight-muted">
+        <p className="scroll-reveal scroll-reveal-delay-1 mt-4 text-center font-body text-starlight-muted">
           Select a size. See what fits. Rent in minutes.
         </p>
 

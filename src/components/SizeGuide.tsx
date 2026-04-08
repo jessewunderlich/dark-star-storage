@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const sizes = [
   {
@@ -8,7 +10,7 @@ const sizes = [
     label: "5 × 5",
     sqft: 25,
     price: "from $49/mo",
-    icon: "📦",
+    image: "/images/unit-5x5.png",
     tagline: "Closet-sized",
     summary: "Seasonal items, boxes, and small gear.",
     details: [
@@ -24,7 +26,7 @@ const sizes = [
     label: "5 × 10",
     sqft: 50,
     price: "from $79/mo",
-    icon: "🛋️",
+    image: "/images/unit-5x10.png",
     tagline: "Studio apartment",
     summary: "Contents of a studio or dorm room.",
     details: [
@@ -40,7 +42,7 @@ const sizes = [
     label: "10 × 10",
     sqft: 100,
     price: "from $119/mo",
-    icon: "🏠",
+    image: "/images/unit-10x10.png",
     tagline: "1–2 bedroom apartment",
     summary: "Furniture, appliances, and full room contents.",
     details: [
@@ -56,7 +58,7 @@ const sizes = [
     label: "10 × 20",
     sqft: 200,
     price: "from $179/mo",
-    icon: "🚛",
+    image: "/images/unit-10x20.png",
     tagline: "3–4 bedroom home",
     summary: "Large home contents or vehicles.",
     details: [
@@ -71,36 +73,45 @@ const sizes = [
 
 export default function SizeGuide() {
   const [expanded, setExpanded] = useState<string | null>(null);
+  const ref = useScrollReveal();
 
   return (
-    <section id="size-guide" className="relative py-24 px-6 bg-horizon/10">
+    <section id="size-guide" className="relative py-24 px-6 bg-horizon/10" ref={ref}>
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-center font-display text-4xl font-bold tracking-tight text-starlight md:text-5xl">
+        <h2 className="scroll-reveal text-center font-display text-4xl font-bold tracking-tight text-starlight md:text-5xl">
           Find the Right <span className="text-gold">Size</span>
         </h2>
-        <p className="mt-4 text-center font-body text-starlight-muted">
+        <p className="scroll-reveal scroll-reveal-delay-1 mt-4 text-center font-body text-starlight-muted">
           Click a size to see what fits inside.
         </p>
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {sizes.map((size) => {
+          {sizes.map((size, i) => {
             const isOpen = expanded === size.id;
             return (
               <button
                 key={size.id}
                 onClick={() => setExpanded(isOpen ? null : size.id)}
                 aria-expanded={isOpen}
-                className={`text-left rounded-xl border p-5 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 ${
+                className={`scroll-reveal scroll-reveal-delay-${i + 1} text-left rounded-xl border p-5 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 ${
                   isOpen
                     ? "border-gold/60 bg-gold/5 shadow-[0_0_24px_rgba(240,165,0,0.12)]"
                     : "border-horizon bg-void-black hover:border-gold/30 hover:bg-gold/5"
                 }`}
               >
+                {/* Unit image */}
+                <div className="relative w-full aspect-square rounded-lg overflow-hidden mb-4">
+                  <Image
+                    src={size.image}
+                    alt={`${size.label} storage unit — ${size.tagline}`}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                  />
+                </div>
+
                 {/* Header */}
                 <div className="flex items-start justify-between gap-2">
-                  <span className="text-3xl" aria-hidden="true">
-                    {size.icon}
-                  </span>
                   <span
                     className={`mt-1 text-xs font-mono transition-colors ${
                       isOpen ? "text-gold" : "text-starlight-muted"
@@ -112,7 +123,7 @@ export default function SizeGuide() {
 
                 {/* Size label */}
                 <p
-                  className={`mt-3 font-display text-2xl font-bold transition-colors ${
+                  className={`mt-2 font-display text-2xl font-bold transition-colors ${
                     isOpen ? "text-gold" : "text-starlight"
                   }`}
                 >

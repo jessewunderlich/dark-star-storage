@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const faqs = [
   {
@@ -55,18 +56,19 @@ const faqs = [
 
 export default function FAQ() {
   const [openId, setOpenId] = useState<string | null>(null);
+  const ref = useScrollReveal();
 
   const toggle = (id: string) => {
     setOpenId((prev) => (prev === id ? null : id));
   };
 
   return (
-    <section id="faq" className="relative py-24 px-6 bg-void-black">
+    <section id="faq" className="relative py-24 px-6 bg-void-black" ref={ref}>
       <div className="mx-auto max-w-3xl">
-        <h2 className="text-center font-display text-4xl font-bold tracking-tight text-starlight md:text-5xl">
+        <h2 className="scroll-reveal text-center font-display text-4xl font-bold tracking-tight text-starlight md:text-5xl">
           Frequently Asked <span className="text-gold">Questions</span>
         </h2>
-        <p className="mt-4 text-center font-body text-starlight-muted">
+        <p className="scroll-reveal scroll-reveal-delay-1 mt-4 text-center font-body text-starlight-muted">
           Everything you need to know before you store.
         </p>
 

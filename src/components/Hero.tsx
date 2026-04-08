@@ -1,17 +1,29 @@
 "use client";
 
+import Image from "next/image";
 import BlackHoleLogo from "./BlackHoleLogo";
 
 export default function Hero() {
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-20">
-      {/* Background glow */}
-      <div className="absolute inset-0 bg-event-horizon" />
+      {/* Background facility image */}
+      <Image
+        src="/images/hero-facility.png"
+        alt="Dark Star Storage facility exterior at twilight"
+        fill
+        priority
+        className="object-cover opacity-30"
+        sizes="100vw"
+      />
+
+      {/* Gradient overlays on top of image */}
+      <div className="absolute inset-0 bg-event-horizon opacity-70" />
       <div className="absolute inset-0 bg-hero-glow opacity-60" />
+      <div className="absolute inset-0 bg-gradient-to-t from-void-black via-transparent to-void-black/80" />
 
       {/* Animated logo */}
       <div className="relative z-10 mb-8">
-        <BlackHoleLogo size={180} className="animate-pulse-slow" />
+        <BlackHoleLogo size={180} className="animate-accretion" />
       </div>
 
       {/* Headline */}
