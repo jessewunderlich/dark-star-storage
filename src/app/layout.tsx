@@ -32,6 +32,12 @@ export const metadata: Metadata = {
     "automated storage",
     "smart storage",
     "climate controlled storage",
+    "boat storage Frazee MN",
+    "vehicle storage Minnesota",
+    "snowmobile storage",
+    "lake country storage",
+    "Frazee storage units",
+    "Detroit Lakes storage",
   ],
   openGraph: {
     title: "Dark Star Storage",

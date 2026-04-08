@@ -76,6 +76,20 @@ export default function Footer() {
             </div>
 
             {/* Social links removed — add back when real accounts exist */}
+
+            {/* Map */}
+            <div className="w-full rounded-lg overflow-hidden border border-horizon">
+              <iframe
+                title="Dark Star Storage location in Frazee, Minnesota"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43888.13!2d-95.72!3d46.73!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52c8a8e8c8c8c8c8%3A0x0!2sFrazee%2C+MN+56544!5e0!3m2!1sen!2sus!4v1"
+                width="100%"
+                height="180"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
 
           {/* Contact form */}

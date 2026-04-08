@@ -4,6 +4,7 @@ import HowItWorks from "@/components/HowItWorks";
 import UnitBrowser from "@/components/UnitBrowser";
 import SizeGuide from "@/components/SizeGuide";
 import Reviews from "@/components/Reviews";
+import VehicleStorage from "@/components/VehicleStorage";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import { getUnits } from "@/lib/storeganise";
@@ -19,6 +20,7 @@ export default async function Home() {
       <UnitBrowser units={units} />
       <HowItWorks />
       <Reviews />
+      <VehicleStorage />
       <FAQ />
       <Footer />
     </main>
