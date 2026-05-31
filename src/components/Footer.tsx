@@ -12,7 +12,9 @@ export default function Footer() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [website, setWebsite] = useState("");
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle",
+  );
   const ref = useScrollReveal();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -41,7 +43,11 @@ export default function Footer() {
   };
 
   return (
-    <footer id="contact" className="border-t border-horizon bg-void-black py-16 px-6" ref={ref}>
+    <footer
+      id="contact"
+      className="border-t border-horizon bg-void-black py-16 px-6"
+      ref={ref}
+    >
       <div className="mx-auto max-w-5xl">
         {/* Top row: logo + contact info + social */}
         <div className="flex flex-col gap-10 md:flex-row md:justify-between">
@@ -60,7 +66,9 @@ export default function Footer() {
             </div>
 
             <div className="space-y-1">
-              <p className="font-body text-sm text-starlight-muted">Frazee, Minnesota</p>
+              <p className="font-body text-sm text-starlight-muted">
+                Frazee, Minnesota
+              </p>
               <a
                 href={`tel:${PHONE.replace(/\D/g, "")}`}
                 className="block font-body text-sm text-starlight-muted hover:text-gold transition-colors duration-200"
@@ -196,7 +204,16 @@ export default function Footer() {
         {/* Bottom */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-horizon pt-8 md:flex-row">
           <p className="font-body text-xs text-starlight-muted">
-            &copy; {new Date().getFullYear()} Dark Star Storage. All rights reserved.
+            &copy; {new Date().getFullYear()} Dark Star Storage. All rights
+            reserved. Built by{" "}
+            <a
+              href="https://sardonyx.software"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 transition-colors hover:text-starlight"
+            >
+              Sardonyx Software
+            </a>
           </p>
           <p className="font-body text-xs text-starlight-muted/50">
             Your stuff. Safely consumed.
